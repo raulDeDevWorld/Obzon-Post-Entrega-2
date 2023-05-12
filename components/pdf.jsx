@@ -93,36 +93,29 @@ const PDFView = ({ img, dbUrl, style }) => {
 
 
 
-        // const isWebview = () => {
-        //     if (typeof window === undefined) { return false };
+        const isWebview = () => {
+            if (typeof window === undefined) { return false };
 
-        //     let navigator = window.navigator;
+            let navigator = window.navigator;
 
-        //     const standalone = navigator.standalone;
-        //     const userAgent = navigator.userAgent.toLowerCase();
-        //     const safari = /safari/.test(userAgent);
-        //     const ios = /iphone|ipod|ipad/.test(userAgent);
+            const standalone = navigator.standalone;
+            const userAgent = navigator.userAgent.toLowerCase();
+            const safari = /safari/.test(userAgent);
+            const ios = /iphone|ipod|ipad/.test(userAgent);
 
-        //     return ios ? !standalone && !safari : userAgent.includes('wv');
-        // }
+            return ios ? !standalone && !safari : userAgent.includes('wv');
+        }
 
-        // if (isWebview()) {
-        //     router.pathname !== '/Downloader' && window.open(`https://collage-two.vercel.app/DownloaderPDF`, '_system')
-        // } else {
-        //     console.log('no es una webview')
-        // }
-        // console.log(JSON.stringify({dataUrl}))
-        // console.log(image)
-
-
-        router.pathname !== '/DownloaderPDF' &&   window.open(`https://collage-two.vercel.app/DownloaderPDF?dataUrl=${dataUrl}`, '_system')
-
-
+        if (isWebview()) {
+        router.pathname !== '/DownloaderPDF' &&   window.open(`https://collage-two.vercel.app/DownloaderPDF?image=${JSON.stringify({image})}&dataUrl=${dataUrl}`, '_system')
+        } else {
+            console.log('no es una webview')
+        }
+ 
 
     }
 
 
-console.log(dataUrl)
 
 
 
@@ -400,7 +393,7 @@ console.log(dataUrl)
 
                 
                     router.pathname == '/DownloaderPDF'
-                        ? <Button style={'buttonPrimary'} click={(e) => download(url)}>  'Descargar PDF' </Button>
+                        ? <Button style={'buttonPrimary'} click={(e) => download(url)}>  Descargar PDF </Button>
                         : <button onClick={(e) => download(url)} className={style}>pdf</button>
                 
 
@@ -419,3 +412,6 @@ console.log(dataUrl)
 
 
 export default PDFView
+
+
+
