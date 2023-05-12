@@ -75,9 +75,30 @@ const PDFView = ({ uuid }) => {
         //     query: { uuid},
         //   })
 
-        console.log(uuid)
+        // console.log(uuid)
 
-        router.pathname !== '/Downloader' && window.open(`https://collage-two.vercel.app/Downloader?uuid=${uuid}`, '_system')
+        // router.pathname !== '/Downloader' && window.open(`https://collage-two.vercel.app/Downloader?uuid=${uuid}`, '_system')
+
+
+        const isWebview = () => {
+            if (typeof window === undefined) { return false };
+
+            let navigator = window.navigator;
+
+            const standalone = navigator.standalone;
+            const userAgent = navigator.userAgent.toLowerCase();
+            const safari = /safari/.test(userAgent);
+            const ios = /iphone|ipod|ipad/.test(userAgent);
+
+            return ios ? !standalone && !safari : userAgent.includes('wv');
+        }
+
+        if (isWebview()) {
+            router.pathname !== '/Downloader' && window.open(`https://collage-two.vercel.app/Downloader?uuid=${uuid}`, '_system')
+        } else {
+            console.log('no es una webview')
+        }
+
     }
 
     useEffect(() => {
