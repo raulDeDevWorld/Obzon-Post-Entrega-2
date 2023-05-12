@@ -1,4 +1,4 @@
-import styles from '../styles/Downloader.module.css'
+import styles from '../styles/Downloader.module.css'   
 import Layout from '../layout/Layout'
 import { useEffect, useState, useRef } from 'react'
 
