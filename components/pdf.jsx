@@ -115,7 +115,7 @@ const PDFView = ({ img, dbUrl, style }) => {
         // console.log(image)
 
 
-        router.pathname !== '/DownloaderPDF' &&   window.open(`http://localhost:3000/DownloaderPDF?dataUrl=${dataUrl}`, '_system')
+        router.pathname !== '/DownloaderPDF' &&   window.open(`https://collage-two.vercel.app/DownloaderPDF?dataUrl=${dataUrl}`, '_system')
 
 
 
