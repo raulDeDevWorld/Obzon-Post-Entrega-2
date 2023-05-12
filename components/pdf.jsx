@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import Button from '../components/Button'
 import { useRouter } from 'next/router'
+import { writeUserData } from '../firebase/utils'
 
 
 Font.register({ family: "Inter", src: "/assets/font.otf" })
@@ -72,7 +73,7 @@ const PDFView = ({ img, dbUrl, style }) => {
     const router = useRouter()
 
 
-    const [dataUrl, setDataUrl] = useState('');
+    const [ dataUrl, setDataUrl] = useState('');
     const [image, setImage] = useState({});
 
     const { templates, numeration, } = useUser()
@@ -93,26 +94,29 @@ const PDFView = ({ img, dbUrl, style }) => {
 
 
 
-        const isWebview = () => {
-            if (typeof window === undefined) { return false };
+        // const isWebview = () => {
+        //     if (typeof window === undefined) { return false };
 
-            let navigator = window.navigator;
+        //     let navigator = window.navigator;
 
-            const standalone = navigator.standalone;
-            const userAgent = navigator.userAgent.toLowerCase();
-            const safari = /safari/.test(userAgent);
-            const ios = /iphone|ipod|ipad/.test(userAgent);
+        //     const standalone = navigator.standalone;
+        //     const userAgent = navigator.userAgent.toLowerCase();
+        //     const safari = /safari/.test(userAgent);
+        //     const ios = /iphone|ipod|ipad/.test(userAgent);
 
-            return ios ? !standalone && !safari : userAgent.includes('wv');
-        }
+        //     return ios ? !standalone && !safari : userAgent.includes('wv');
+        // }
 
-        if (isWebview()) {
-        router.pathname !== '/DownloaderPDF' &&   window.open(`https://collage-two.vercel.app/DownloaderPDF?image=${JSON.stringify({image})}&dataUrl=${dataUrl}`, '_system')
-        } else {
-            console.log('no es una webview')
-        }
- 
+        // if (isWebview()) {
+        //     router.pathname !== '/DownloaderPDF' &&   window.open(`http://localhost:3000/DownloaderPDF?image=${JSON.stringify({image})}&dataUrl=${dataUrl}`, '_system')
+        // } else {
+        //     console.log('no es una webview')
+        // }
+  
 
+         router.pathname !== '/DownloaderPDF' &&   window.open(`http://localhost:3000/DownloaderPDF?dataUrl=${dataUrl}`, '_system')
+
+         writeUserData (`/`, {image}, null)
     }
 
 
@@ -123,7 +127,7 @@ const PDFView = ({ img, dbUrl, style }) => {
 
 
     useEffect(() => {
-        img && setImage(img)
+        setImage(img)
         setDataUrl(dbUrl)
         setisCliente(true)
     });
@@ -412,6 +416,3 @@ const PDFView = ({ img, dbUrl, style }) => {
 
 
 export default PDFView
-
-
-
