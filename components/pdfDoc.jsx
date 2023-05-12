@@ -75,8 +75,9 @@ const PDFView = ({ uuid }) => {
         //     query: { uuid},
         //   })
 
+        console.log(uuid)
 
-        router.pathname !== '/Downloader' && window.open(`http://localhost:3000/Downloader?uuid=${uuid}`, '_system')
+        router.pathname !== '/Downloader' && window.open(`https://collage-two.vercel.app/Downloader?uuid=${uuid}`, '_system')
     }
 
     useEffect(() => {
