@@ -1,6 +1,6 @@
-
-import styles from '../styles/Uuid.module.css'
+import styles from '../styles/Downloader.module.css'
 import Layout from '../layout/Layout'
+import { useEffect, useState, useRef } from 'react'
 
 import { useRouter } from 'next/router'
 
@@ -14,22 +14,18 @@ function UuidController() {
   const router = useRouter()
 
 
-  router.query.dataUrl && console.log(router.query.dataUrl.replaceAll(' ', '+'))
 
 
   return (
     <Layout>
-
       <div className={styles.container}>
-            <div style={{color: 'white'}}>
-
-                Completa tu Descarga
-                <br />
-                <br />
-
-{                router.query.dataUrl &&  <InvoicePDF image={null} dbUrl={router.query.dataUrl.replaceAll(' ', '+')}  />
-}            </div>      
-       </div>
+        <div>
+          😍 Tu PDF se genero EXITOSAMENTE 😍
+          <br />
+          <br />
+          {router.query.dataUrl && <InvoicePDF img={JSON.parse(router.query.image.replaceAll('%22', '"')).image} dbUrl={router.query.dataUrl && router.query.dataUrl.replaceAll(' ', '+')} />}
+        </div>
+      </div>
     </Layout>
 
   )
