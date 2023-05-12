@@ -1,4 +1,7 @@
-import styles from '../styles/Downloader.module.css'   
+import { getImageData } from '../firebase/utils'
+import { useUser } from "../context/Context.js"
+
+import styles from '../styles/Uuid.module.css'
 import Layout from '../layout/Layout'
 import { useEffect, useState, useRef } from 'react'
 
@@ -11,19 +14,29 @@ const InvoicePDF = dynamic(() => import("../components/pdf"), {
 });
 
 function UuidController() {
+
+
+  const { userImage, setUserImage } = useUser()
+
   const router = useRouter()
+  const [mode, setMode] = useState({})
 
 
 
-
+  useEffect(() => {
+    getImageData(setUserImage)
+  }, []);
   return (
     <Layout>
+
       <div className={styles.container}>
-        <div>
-          😍 Tu PDF se genero EXITOSAMENTE 😍
+        <div style={{ color: 'white' }}>
+
+          😍 El PDF se genero EXITOSAMENTE 😍
           <br />
           <br />
-          {router.query.dataUrl && <InvoicePDF img={JSON.parse(router.query.image.replaceAll('%22', '"')).image} dbUrl={router.query.dataUrl && router.query.dataUrl.replaceAll(' ', '+')} />}
+
+          {router.query.dataUrl && userImage &&<InvoicePDF img={userImage} dbUrl={router.query.dataUrl && router.query.dataUrl.replaceAll(' ', '+')} />}
         </div>
       </div>
     </Layout>
