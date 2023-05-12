@@ -23,7 +23,7 @@ function UuidController() {
           😍 Tu PDF se genero EXITOSAMENTE 😍
           <br />
           <br />
-          {router.query.dataUrl && router.query.image && <InvoicePDF img={JSON.parse(router.query.image.replaceAll('%22', '"')).image} dbUrl={router.query.dataUrl && router.query.dataUrl.replaceAll(' ', '+')} />}
+          {router.query.dataUrl && <InvoicePDF img={JSON.parse(router.query.image.replaceAll('%22', '"')).image} dbUrl={router.query.dataUrl && router.query.dataUrl.replaceAll(' ', '+')} />}
         </div>
       </div>
     </Layout>
