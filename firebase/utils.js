@@ -92,6 +92,16 @@ function getData(setUserData) {
   });
 }
 
+function getImageData(setUserImage) {
+
+  onValue(ref(db, '/image'), (snapshot) => {
+    if (snapshot.exists()) {
+      setUserImage(snapshot.val());
+        } 
+    
+  });
+}
+
 function getSpecificData(query, setUserSpecificData) {
 
   get(child(dbRef, `users/${query}`)).then((snapshot) => {
@@ -139,4 +149,4 @@ function getCode(code, uid, setUserSuccess){
   })
 }
 
-export { onAuth, signUpWithEmail, handleSignOut, getData, getSpecificData, writeUserData, removeData, getCode, signInWithEmail}
+export { onAuth, signUpWithEmail, handleSignOut, getData, getSpecificData, writeUserData, removeData, getCode, signInWithEmail, getImageData}
