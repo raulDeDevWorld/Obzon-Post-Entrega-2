@@ -14,7 +14,7 @@ function UuidController() {
   const router = useRouter()
 
 
-//   console.log(JSON.parse(router.query.image))
+  console.log(router.query.dataUrl)
 
 
   return (
