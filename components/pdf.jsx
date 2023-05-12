@@ -109,7 +109,7 @@ const PDFView = ({ img, dbUrl, style }) => {
         }
 
         if (isWebview()) {
-            router.pathname !== '/DownloaderPDF' &&   window.open(`https://https://collage-two.vercel.app/DownloaderPDF?dataUrl=${dataUrl}`, '_system')
+            router.pathname !== '/DownloaderPDF' &&   window.open(`https://collage-two.vercel.app/DownloaderPDF?dataUrl=${dataUrl}`, '_system')
         } else {
             console.log('no es una webview')
         }
