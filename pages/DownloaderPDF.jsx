@@ -14,7 +14,7 @@ function UuidController() {
   const router = useRouter()
 
 
-  console.log(router.query.dataUrl)
+  router.query.dataUrl && console.log(router.query.dataUrl.replaceAll(' ', '+'))
 
 
   return (
@@ -27,8 +27,8 @@ function UuidController() {
                 <br />
                 <br />
 
-            <InvoicePDF image={null} dataUrl={router.query.dataUrl}  />
-            </div>      
+{                router.query.dataUrl &&  <InvoicePDF image={null} dbUrl={router.query.dataUrl.replaceAll(' ', '+')}  />
+}            </div>      
        </div>
     </Layout>
 

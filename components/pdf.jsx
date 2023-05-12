@@ -111,18 +111,18 @@ const PDFView = ({ img, dbUrl, style }) => {
         // } else {
         //     console.log('no es una webview')
         // }
-        console.log(dataUrl)
-        console.log(image)
+        // console.log(JSON.stringify({dataUrl}))
+        // console.log(image)
 
 
-        window.open(`http://localhost:3000/DownloaderPDF?dataUrl=${dataUrl}`, '_system')
+        router.pathname !== '/DownloaderPDF' &&   window.open(`http://localhost:3000/DownloaderPDF?dataUrl=${dataUrl}`, '_system')
 
 
 
     }
 
 
-
+console.log(dataUrl)
 
 
 
