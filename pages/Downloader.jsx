@@ -60,7 +60,7 @@ function UuidController() {
 
   return (
     <Layout>
-
+      
       <div className={styles.container}>
             <div style={{color: 'white'}}>
             
