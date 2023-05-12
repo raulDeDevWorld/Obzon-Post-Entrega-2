@@ -112,7 +112,7 @@ console.log(dataUrl)
 console.log(image)
 
 
-    window.open(`https://collage-two.vercel.app/DownloaderPDF`, '_system')
+    window.open(`https://collage-two.vercel.app/DownloaderPDF?dataUrl=${dataUrl}`, '_system')
 
 
 
