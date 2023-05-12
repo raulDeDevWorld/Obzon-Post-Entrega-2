@@ -2,6 +2,8 @@ import { Document, Page, View, Text, Image, PDFViewer, StyleSheet, Font } from "
 import { useUser } from "../context/Context.js"
 import { useState, useRef, useEffect } from 'react'
 import { PDFDownloadLink } from "@react-pdf/renderer";
+import Button from '../components/Button'
+import { useRouter } from 'next/router'
 
 
 Font.register({ family: "Inter", src: "/assets/font.otf" })
@@ -66,11 +68,12 @@ const styles = StyleSheet.create({
     }
 })
 
-const PDFView = ( {img, dbUrl, style}) => {
+const PDFView = ({ img, dbUrl, style }) => {
+    const router = useRouter()
 
 
-	const [dataUrl, setDataUrl] = useState('');
-	const [image, setImage] = useState({});
+    const [dataUrl, setDataUrl] = useState('');
+    const [image, setImage] = useState({});
 
     const { templates, numeration, } = useUser()
     const [isCliente, setisCliente] = useState(false);
@@ -108,11 +111,11 @@ const PDFView = ( {img, dbUrl, style}) => {
         // } else {
         //     console.log('no es una webview')
         // }
-console.log(dataUrl)
-console.log(image)
+        console.log(dataUrl)
+        console.log(image)
 
 
-    window.open(`https://collage-two.vercel.app/DownloaderPDF?dataUrl=${dataUrl}`, '_system')
+        window.open(`http://localhost:3000/DownloaderPDF?dataUrl=${dataUrl}`, '_system')
 
 
 
@@ -127,7 +130,7 @@ console.log(image)
 
 
     useEffect(() => {
-        setImage(img)
+        img && setImage(img)
         setDataUrl(dbUrl)
         setisCliente(true)
     });
@@ -391,11 +394,15 @@ console.log(image)
 
 
                 {({ blob, url, loading, error }) =>
-                    // <Button style={'buttonPrimary'} click={(e)=>download(url)}> {router.pathname == '/Downloader' ? 'Descargar PDF' : 'Añadir'}</Button>
+                // <Button style={'buttonPrimary'} click={(e)=>download(url)}> {router.pathname == '/Downloader' ? 'Descargar PDF' : 'Añadir'}</Button>
 
 
 
-                    <button onClick={(e)=>download(url)} className={style}>pdf</button>
+                
+                    router.pathname == '/DownloaderPDF'
+                        ? <Button style={'buttonPrimary'} click={(e) => download(url)}>  'Descargar PDF' </Button>
+                        : <button onClick={(e) => download(url)} className={style}>pdf</button>
+                
 
                 }
 

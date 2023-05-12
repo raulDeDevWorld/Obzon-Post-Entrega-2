@@ -27,7 +27,7 @@ function UuidController() {
                 <br />
                 <br />
 
-            {/* <InvoicePDF image={JSON.parse(router.query.image)} dataUrl={router.query.dataUrl}  /> */}
+            <InvoicePDF image={null} dataUrl={router.query.dataUrl}  />
             </div>      
        </div>
     </Layout>
