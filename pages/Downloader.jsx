@@ -18,43 +18,7 @@ const InvoicePDF = dynamic(() => import("../components/pdfDoc"), {
 });
 
 function UuidController() {
-  const { user, userDB, setUserSuccess, success, uuid, setUuid } = useUser()
   const router = useRouter()
-
-
-  function generate() {
-    let uuidGenerates = []
-    for (let i = 0; i < 16; i++) {
-      const newUuid = generateUUID()
-      uuidGenerates.push(newUuid)
-    }
-    setUuid([...uuidGenerates])
-  }
-
-  function añadir() {
-    console.log('anadiendo codes')
-    const obj = uuid.reduce(function (target, key, index) {
-      target[key] = false
-      return target;
-    }, {})
-    return writeUserData('/activadores', obj, setUserSuccess)
-  }
-
-
-  function redirect() {
-    const obj = uuid.reduce(function (target, key, index) {
-      target[key] = false
-      return target;
-    }, {})
-    router.push('/PDFdoc')
-    return writeUserData('/activadores', obj, setUserSuccess)
-  }
-  useEffect(() => {
-
-  }, []);
-
-  // console.log(router.query.uuid.split(','))
-  //   console.log(Object.fromEntries(obj.get('uuid')))
 
 
   return (
