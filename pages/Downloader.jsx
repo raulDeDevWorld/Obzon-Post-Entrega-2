@@ -53,24 +53,23 @@ function UuidController() {
 
   }, []);
 
-  const obj = new URLSearchParams(router.query)
-  console.log({...router.query.uuid})
-//   console.log(Object.fromEntries(obj.get('uuid')))
+  // console.log(router.query.uuid.split(','))
+  //   console.log(Object.fromEntries(obj.get('uuid')))
 
 
   return (
     <Layout>
-      
-      <div className={styles.container}>
-            <div style={{color: 'white'}}>
-            
-                Completa tu Descarga
-                <br />
-                <br />
 
-                <InvoicePDF uuid={Object.keys({...router.query.uuid})}  />
-            </div>      
-       </div>
+      <div className={styles.container}>
+        <div style={{ color: 'white' }}>
+
+          Completa tu Descarga
+          <br />
+          <br />
+
+          {router.query.uuid &&  <InvoicePDF uuid={router.query.uuid.split(',')} />}
+        </div>
+      </div>
     </Layout>
 
   )
