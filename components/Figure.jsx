@@ -14,8 +14,36 @@ export default function Figure({ stylesProp, num, rotate, index }) {
         e.preventDefault()
         const fileName = e.target.name
         const file = e.target.files[0]
+
+
+
+
+
+
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+
+          setAlbunImage({ ...image, [fileName]: { ...image[fileName], file, url: reader.result, rotate: 0, position: 'center' } })
+
+
+        };
+
+
+
+
+
         setAlbunImage({ ...image, [fileName]: { ...image[fileName], file, url: URL.createObjectURL(file), rotate: 0, position: 'center' } })
         console.log(e.target.value)
+
+
+
+
+
+
+
+
+
     }
 
     function handlerEventOnChange(e) {
