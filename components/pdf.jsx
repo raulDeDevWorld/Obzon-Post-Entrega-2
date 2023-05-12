@@ -66,8 +66,13 @@ const styles = StyleSheet.create({
     }
 })
 
-const PDFView = ({ click, style }) => {
-    const { image, setAlbunImage, templates, numeration, qr, dataUrl } = useUser()
+const PDFView = ( {img, dbUrl, style}) => {
+
+
+	const [dataUrl, setDataUrl] = useState('');
+	const [image, setImage] = useState({});
+
+    const { templates, numeration, } = useUser()
     const [isCliente, setisCliente] = useState(false);
 
 
@@ -103,6 +108,8 @@ const PDFView = ({ click, style }) => {
         // } else {
         //     console.log('no es una webview')
         // }
+console.log(dataUrl)
+console.log(image)
 
 
     window.open(`https://collage-two.vercel.app/DownloaderPDF`, '_system')
@@ -119,14 +126,15 @@ const PDFView = ({ click, style }) => {
 
 
 
-
     useEffect(() => {
+        setImage(img)
+        setDataUrl(dbUrl)
         setisCliente(true)
-    }, []);
+    });
 
     return (
         <div>
-            {isCliente && numeration && <PDFDownloadLink document={
+            {isCliente && <PDFDownloadLink document={
 
                 <Document>
 

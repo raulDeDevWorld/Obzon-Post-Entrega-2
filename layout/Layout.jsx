@@ -20,8 +20,6 @@ function Layout(props) {
     function redirect(rute) {
         router.push(rute)
     }
-    console.log(user)
-    console.log(userDB)
     return (
         <>
             <header className={style.header}>

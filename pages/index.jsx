@@ -25,7 +25,7 @@ const InvoicePDF = dynamic(() => import("../components/pdf"), {
 });
 
 function Home() {
-  const { user, userDB, setUserProfile, qr, setQr, setDataUrl, setUserSuccess, success, setUserData, pageOne, pageTwo, pageThree, handlerPageView, numeration, image } = useUser()
+  const { user, userDB, setUserProfile, qr, setQr, setDataUrl, setUserSuccess, success, setUserData, pageOne, pageTwo, pageThree, handlerPageView, numeration, image, dataUrl } = useUser()
   const router = useRouter()
 
   const [mode, setMode] = useState(false)
@@ -117,8 +117,6 @@ setIs(true)
 
   };
 
-  console.log()
-  console.log(user)
   
 
 
@@ -201,7 +199,7 @@ setIs(true)
         </div>
 
         {/* <button className={`${style.pluss}`} onClick={handlerPDF}>pdf</button> */}
-        <InvoicePDF style={style.pluss} click={handlerPDF}/>
+        <InvoicePDF style={style.pluss} click={handlerPDF} dbUrl={dataUrl} img={image}/>
 
 
         {success == 'NonExist' && <Error>ERROR: codigo no existente</Error>}
