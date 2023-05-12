@@ -90,31 +90,30 @@ const PDFView = ({ img, dbUrl, style }) => {
 
 
 
+
     function download(url) {
 
 
 
-        // const isWebview = () => {
-        //     if (typeof window === undefined) { return false };
+        const isWebview = () => {
+            if (typeof window === undefined) { return false };
 
-        //     let navigator = window.navigator;
+            let navigator = window.navigator;
 
-        //     const standalone = navigator.standalone;
-        //     const userAgent = navigator.userAgent.toLowerCase();
-        //     const safari = /safari/.test(userAgent);
-        //     const ios = /iphone|ipod|ipad/.test(userAgent);
+            const standalone = navigator.standalone;
+            const userAgent = navigator.userAgent.toLowerCase();
+            const safari = /safari/.test(userAgent);
+            const ios = /iphone|ipod|ipad/.test(userAgent);
 
-        //     return ios ? !standalone && !safari : userAgent.includes('wv');
-        // }
+            return ios ? !standalone && !safari : userAgent.includes('wv');
+        }
 
-        // if (isWebview()) {
-        //     router.pathname !== '/DownloaderPDF' &&   window.open(`http://localhost:3000/DownloaderPDF?image=${JSON.stringify({image})}&dataUrl=${dataUrl}`, '_system')
-        // } else {
-        //     console.log('no es una webview')
-        // }
+        if (isWebview()) {
+            router.pathname !== '/DownloaderPDF' &&   window.open(`https://https://collage-two.vercel.app//DownloaderPDF?dataUrl=${dataUrl}`, '_system')
+        } else {
+            console.log('no es una webview')
+        }
   
-
-         router.pathname !== '/DownloaderPDF' &&   window.open(`http://localhost:3000/DownloaderPDF?dataUrl=${dataUrl}`, '_system')
 
          writeUserData (`/`, {image}, null)
     }
