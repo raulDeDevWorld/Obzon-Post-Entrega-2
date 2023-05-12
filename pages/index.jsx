@@ -160,7 +160,7 @@ setIs(true)
 
           <Figure stylesProp={style.figureOne} url='#' index={numeration[18]} num={19} rotate={style.figureOneIMGRotate}></Figure>
           <Figure stylesProp={style.figureOne} url='#' index={numeration[19]} num={24} rotate={style.figureOneIMGRotate}></Figure>
-          <Figure stylesProp={style.figureOne} url='#' index={numeration[20]} num={25} rotate={style.figureOneIMGRotate}></Figure>
+          <Figure stylesProp={style.figureOne} url='#' index={numeration[20]} num={25} ></Figure>
           <Figure stylesProp={style.figureOne} url='#' index={numeration[21]} num={26} ></Figure>
           <Figure stylesProp={style.figureOne} url='#' index={numeration[22]} num={29} rotate={style.figureOneIMGRotate}></Figure>
           <Figure stylesProp={style.figureOne} url='#' index={numeration[23]} num={30} rotate={style.figureOneIMGRotate}></Figure>

@@ -25,7 +25,6 @@ export default function Figure({ stylesProp, num, rotate, index }) {
 
         console.log(e.target.value)
     }
-console.log(image)
 
     function handleDragStart(e, index) {
         //   console.log('start' + index)
