@@ -1,0 +1,17 @@
+.container {
+    min-height: 100vh;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+}
+
+.container > div {
+background-color: rgba(0, 0, 0, 0.615);
+padding: 30px 50px;
+height: 125px;
+text-align: center;
+border-radius: 15px;
+}
