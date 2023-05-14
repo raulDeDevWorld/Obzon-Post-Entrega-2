@@ -76,7 +76,7 @@ const PDFView = ({ img, dbUrl, style }) => {
     const [ dataUrl, setDataUrl] = useState('');
     const [image, setImage] = useState({});
 
-    const { templates, numeration, } = useUser()
+    const { templates, numeration, user } = useUser()
     const [isCliente, setisCliente] = useState(false);
 
 
