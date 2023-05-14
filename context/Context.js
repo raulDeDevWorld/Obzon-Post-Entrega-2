@@ -17,7 +17,7 @@ export function UserProvider({ children }) {
 	const [qr, setQr] = useState('swoou.com');
 	const [uuid, setUuid] = useState([])
 
-
+const [userImage, setUserImage] = useState({})
 	const [dataUrl, setDataUrl] = useState('');
 	const [templates, setTemplates] = useState([
 		[
@@ -93,6 +93,7 @@ export function UserProvider({ children }) {
 			pageThree,
 			templates,
 			qr,
+			
 			dataUrl,
 			uuid,
 			setUserProfile,
