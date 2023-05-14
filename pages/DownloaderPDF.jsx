@@ -36,7 +36,7 @@ function UuidController() {
           <br />
           <br />
 
-          {userImage && <InvoicePDF img={userImage} dbUrl={router.query.dataUrl && router.query.dataUrl.replaceAll(' ', '+')} />}
+          {Object.keys(userImage).length > 0 && <InvoicePDF img={userImage} dbUrl={router.query.dataUrl && router.query.dataUrl.replaceAll(' ', '+')} />}
         </div>
       </div>
     </Layout>
