@@ -30,14 +30,28 @@ function UuidController() {
     <Layout>
 
       <div className={styles.container}>
-        <div style={{ color: 'white' }}>
+          {Object.keys(userImage).length > 0 
+                ? <div style={{ color: 'white' }}>
 
-          😍 El PDF se genero EXITOSAMENTE 😍
+          😍 El PDF se esta GENERANDO 😍
           <br />
           <br />
 
-          {Object.keys(userImage).length > 0 && <InvoicePDF img={userImage} dbUrl={router.query.dataUrl && router.query.dataUrl.replaceAll(' ', '+')} />}
+      
         </div>
+                :<div style={{ color: 'white' }}>
+
+          😍 El PDF se ha GENERADO exitosamente 😍
+
+          <br />
+
+          <br />
+
+           <InvoicePDF img={userImage} dbUrl={router.query.dataUrl && router.query.dataUrl.replaceAll(' ', '+')} />
+
+        </div>
+      
+}
       </div>
     </Layout>
 
