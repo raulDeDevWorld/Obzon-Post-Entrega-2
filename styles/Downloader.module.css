@@ -47,7 +47,7 @@ display: inline-block;
 
   animation-name: spiner;
 
-  animation-duration: 1s;
+  animation-duration: .5s;
 
   animation-iteration-count: infinite;
 
