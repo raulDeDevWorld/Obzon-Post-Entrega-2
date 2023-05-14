@@ -50,7 +50,17 @@ function UuidController() {
 
           <br />
 
-       
+         
+
+  <div className={style.spiner}>
+
+    
+
+    <span></span>
+
+  </div>
+
+  
 
         </div>
       
