@@ -27,7 +27,7 @@ function UuidController() {
     getImageData(router.query.uid, setUserImage)
   }, []);
   
-  console.log(router.query.uid)
+  console.log(userImage)
   return (
 
     <Layout>
