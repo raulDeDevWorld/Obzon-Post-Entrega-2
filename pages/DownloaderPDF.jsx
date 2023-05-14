@@ -24,7 +24,7 @@ function UuidController() {
 
 
   useEffect(() => {
-    getImageData(router.query.user, uetUserImage)
+    getImageData(router.query.user, setUserImage)
   }, []);
   return (
     <Layout>
