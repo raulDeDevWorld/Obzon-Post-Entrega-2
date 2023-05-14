@@ -92,9 +92,9 @@ function getData(setUserData) {
   });
 }
 
-function getImageData(setUserImage) {
+function getImageData(uid, setUserImage) {
 
-  onValue(ref(db, '/image'), (snapshot) => {
+  onValue(ref(db, `/${uid}`), (snapshot) => {
     if (snapshot.exists()) {
       setUserImage(snapshot.val());
         } 
