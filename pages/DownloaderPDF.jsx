@@ -33,14 +33,6 @@ function UuidController() {
           {Object.keys(userImage).length > 0 
                 ? <div style={{ color: 'white' }}>
 
-          😍 El PDF se esta GENERANDO 😍
-          <br />
-          <br />
-
-      
-        </div>
-                :<div style={{ color: 'white' }}>
-
           😍 El PDF se ha GENERADO exitosamente 😍
 
           <br />
@@ -48,6 +40,17 @@ function UuidController() {
           <br />
 
            <InvoicePDF img={userImage} dbUrl={router.query.dataUrl && router.query.dataUrl.replaceAll(' ', '+')} />
+
+        </div>
+                :<div style={{ color: 'white' }}>
+
+          😍 El PDF se esta GENERANDO 😍
+
+          <br />
+
+          <br />
+
+       
 
         </div>
       
