@@ -92,7 +92,7 @@ const [userImage, setUserImage] = useState({})
 			pageTwo,
 			pageThree,
 			templates,
-			qr,
+			qr, userImage,
 			
 			dataUrl,
 			uuid,
@@ -103,9 +103,9 @@ const [userImage, setUserImage] = useState({})
 			setAlbunNumeration,
 			setQr,
 			setDataUrl,
-			setUuid,
+			setUuid, setUserImage
 		})
-	}, [user, userDB, success, image, numeration, pageOne, pageTwo, pageThree, qr, dataUrl, uuid])
+	}, [user, userDB, success, image, numeration, pageOne, pageTwo, pageThree, qr, dataUrl, uuid, userImage])
 
 	return (
 		<UserContext.Provider value={value} >
