@@ -81,7 +81,7 @@ function UuidController() {
    
         </div>
 
-                :<div style={{ color: 'white' }}>
+         :<div style={{ color: 'white' }}>
 
           😍 El PDF se esta GENERANDO 😍
 
@@ -91,16 +91,16 @@ function UuidController() {
 
          
 
- <div className={styles.spiner}>
+                  <div className={styles.spiner}>
 
     
 
-    <span></span>
+                        <span></span>
 
-  </div>
+                  </div>
 
     
-</div>
+             </div>}
   
 
         </div>
@@ -108,7 +108,7 @@ function UuidController() {
     
     
     
-    
+
 
     </Layout>
 
