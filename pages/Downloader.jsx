@@ -66,7 +66,7 @@ function UuidController() {
     
     <div className={styles.container}>
 
-          {Object.keys(userImage).length > 0 
+          {router.query.uuid
 
                 ? <div style={{ color: 'white' }}>
 
