@@ -83,27 +83,12 @@ function Home() {
   }
 
 
-  const [is, setIs] = useState(false);
+  
   function handlerPDF() {
-setIs(true)
 
 
-    // const downloadDoc = document.createElement('a')
+setUserSuccess('RequireCodeActivation')
 
-    // downloadDoc.href = '/PDFdoc'
-
-    // downloadDoc.click()
-
-    // document.body.appendChild(downloadDoc)
-
-
-    
-
-    // userDB.users[user.uid] && userDB.users[user.uid].uid
-    // ? router.push('/PdfViewer')
-    // : setUserSuccess('RequireCodeActivation')
-
-    // router.push('/PdfViewer')
   }
   function x() {
     setMode(!mode)
@@ -205,6 +190,16 @@ setIs(true)
 
         {/* <button className={`${style.pluss}`} onClick={handlerPDF}>pdf</button> */}
         <InvoicePDF style={style.pluss} click={handlerPDF} dbUrl={dataUrl} img={image}/>
+
+{userDB && userDB.users && userDB.users[user.uid] && userDB.users[user.uid].uid
+
+          ? <InvoicePDF style={style.pluss} click={handlerPDF} dbUrl={dataUrl} img={image}/>
+
+
+          : <button onClick={handlerPDF} className={style.pluss} >pdf</button>}
+
+
+
 
 
         {success == 'NonExist' && <Error>ERROR: codigo no existente</Error>}
