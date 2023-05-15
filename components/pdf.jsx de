@@ -93,6 +93,9 @@ const PDFView = ({ img, dbUrl, style }) => {
 
     function download(url) {
 
+if (userDB.users && userDB.users[user.uid] && userDB.users[user.uid].uid)
+
+{
 
 
         const isWebview = () => {
@@ -117,7 +120,9 @@ const PDFView = ({ img, dbUrl, style }) => {
         } else {
             console.log('no es una webview')
         }
-  
+  } else {
+  setUserSuccess('RequireCodeActivation')
+  }
 
     }
 
