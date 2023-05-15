@@ -92,10 +92,8 @@ const PDFView = ({ img, dbUrl, style }) => {
 
 
     function download(url) {
-    
-    
-    
-    const isWebview = () => {
+
+        const isWebview = () => {
 
             if (typeof window === undefined) { return false };
 
@@ -107,38 +105,31 @@ const PDFView = ({ img, dbUrl, style }) => {
 
             const safari = /safari/.test(userAgent);
 
-            const ios = /iphone|ipod|ipad/.test (userAgent);
+            const ios = /iphone|ipod|ipad/.test(userAgent);
 
             return ios ? !standalone && !safari : userAgent.includes('wv');
 
         }
-    
-    
-    
-
-if (userDB.users && userDB.users[user.uid] && userDB.users[user.uid].uid)
-
-{
-
-
-        
 
         if (isWebview()) {
+
             writeUserData (`/`, {[user.uid]: image}, null)
+
             router.pathname !== '/DownloaderPDF' &&   window.open(`https://collage-two.vercel.app/DownloaderPDF?dataUrl=${dataUrl}&uid=${user.uid}`, '_system')
+
           
 
     
+
         } else {
+
             console.log('no es una webview')
+
         }
-  } else {
-  setUserSuccess('RequireCodeActivation')
-  }
+
+  
 
     }
-
-
 
 
 
