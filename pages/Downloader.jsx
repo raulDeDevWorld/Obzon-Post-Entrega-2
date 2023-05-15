@@ -76,7 +76,7 @@ function UuidController() {
 
           <br />
 
-           <InvoicePDF uuid={router.query.uuid.split(',')} />}
+           {router.query.uuid && <InvoicePDF uuid={router.query.uuid.split(',')} />}
 
    
         </div>
