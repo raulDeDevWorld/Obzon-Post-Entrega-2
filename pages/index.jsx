@@ -1,4 +1,4 @@
-import { getCode } from '../firebase/utils'
+import { getCode, getImageData } from '../firebase/utils'
 import { useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/router'
 import { useUser } from '../context/Context'
@@ -25,7 +25,7 @@ const InvoicePDF = dynamic(() => import("../components/pdf"), {
 });
 
 function Home() {
-  const { user, userDB, setUserProfile, qr, setQr, setDataUrl, setUserSuccess, success, setUserData, pageOne, pageTwo, pageThree, handlerPageView, numeration, image, dataUrl } = useUser()
+  const { user, userDB, setUserProfile, setAlbunImage, qr, setQr, setDataUrl, setUserSuccess, success, setUserData, pageOne, pageTwo, pageThree, handlerPageView, numeration, image, dataUrl } = useUser()
   const router = useRouter()
 
   const [mode, setMode] = useState(false)
@@ -122,8 +122,13 @@ setIs(true)
 
 
   useEffect(() => {
+
+    Object.keys(image).length == 0  && getImageData(user.uid, setAlbunImage)
+
     document.getElementById('qr') && setDataUrl(document.getElementById('qr').toDataURL())
-  }, [qr]);
+  }, [user, qr]);
+
+
 
   return (
    <Layout >
@@ -240,3 +245,4 @@ setIs(true)
 }
 
 export default WithAuth(Home) 
+
