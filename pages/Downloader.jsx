@@ -61,16 +61,55 @@ function UuidController() {
   return (
     <Layout>
 
-      <div className={styles.container}>
-            <div style={{color: 'white'}}>
-            
-                Completa tu Descarga
-                <br />
-                <br />
+    
+    
+    
+    <div className={styles.container}>
 
-          {router.query.uuid &&  <InvoicePDF uuid={router.query.uuid.split(',')} />}
-          </div>      
-       </div>
+          {Object.keys(userImage).length > 0 
+
+                ? <div style={{ color: 'white' }}>
+
+          😍 El PDF se ha GENERADO exitosamente 😍
+
+          <br />
+
+          <br />
+
+           <InvoicePDF uuid={router.query.uuid.split(',')} />}
+
+   
+        </div>
+
+                :<div style={{ color: 'white' }}>
+
+          😍 El PDF se esta GENERANDO 😍
+
+          <br />
+
+          <br />
+
+         
+
+ <div className={styles.spiner}>
+
+    
+
+    <span></span>
+
+  </div>
+
+    
+
+  
+
+        </div>
+    
+    
+    
+    
+    
+
     </Layout>
 
   )
